@@ -1,0 +1,31 @@
+We use the integers a, b, and n to create the following series:
+(a+2(pow0).b),(a+2(pow0).b+2(pow1).b)...........(a+2(pow0).b+2(pow1).b+........+2(pow(n-1)).b).
+
+
+import java.util.*;
+import java.io.*;
+
+class Solution{
+    public static void main(String []argh){
+        Scanner in = new Scanner(System.in);
+        int t=in.nextInt();
+        for(int i=0;i<t;i++){
+            int a = in.nextInt();
+            int b = in.nextInt();
+            int n = in.nextInt();
+
+             List<Integer> abc=new ArrayList<Integer>();
+            abc.add(a) ;
+            for(int ab=0;ab<n;ab++){
+             abc.add(abc.get(ab)+(int)(Math.pow(2,ab))*b);
+            }
+            abc.remove(0);
+            
+            for(int z=0;z<abc.size();z++){
+                System.out.printf("%d ",abc.get(z));
+            }
+            System.out.println();
+        }
+        in.close();
+    }
+}
