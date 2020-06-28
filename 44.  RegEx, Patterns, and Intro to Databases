@@ -1,0 +1,44 @@
+Task 
+Consider a database table, Emails, which has the attributes First Name and Email ID. Given  rows of data simulating the Emails table, 
+print an alphabetically-ordered list of people whose email address ends in .
+Input Format
+The first line contains an integer, , total number of rows in the table. 
+Each of the  subsequent lines contains  space-separated strings denoting a person's first name and email ID, respectively.
+import java.io.*;
+import java.math.*;
+import java.security.*;
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.regex.*;
+
+public class Solution {
+
+
+    public static void main(String[] args) {
+
+      Scanner in = new Scanner(System.in);
+        int N = in.nextInt();
+        String[] str=new String[N];
+        
+        int i=0;
+        Pattern p = Pattern.compile("[a-z]+@gmail.com");  
+        ArrayList<String> arr=new ArrayList();
+        Matcher m;
+        for(int a0 = 0; a0 < N; a0++)
+        {
+            String firstName = in.next();
+            String emailID = in.next();
+            m=p.matcher(emailID);
+            if(m.find())
+                  arr.add(firstName.toLowerCase());        
+        }
+        Collections.sort(arr);
+        
+        for(String s:arr)
+        {
+            System.out.println(s);    
+        
+        }
+    }
+}
