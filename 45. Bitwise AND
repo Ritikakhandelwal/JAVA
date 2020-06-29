@@ -1,0 +1,60 @@
+Given set S={1,2,3....N}. Find two integers, A and B (where A<B ), from set S such that the value of A & B is the maximum possible and also less than a given integer,K .
+In this case,& represents the bitwise AND operator.
+Sample Input
+3
+5 2
+8 5
+2 2
+Sample Output
+1
+4
+0
+import java.io.*;
+import java.math.*;
+import java.security.*;
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.regex.*;
+
+public class Solution {
+
+
+
+  public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Scanner in = new Scanner(System.in);
+
+  
+        int T = in.nextInt();
+        int k[] = new int [T];
+        int n[]  = new int [T];
+        for(int  i= 0;i<T;i++){
+         n[i] = in.nextInt();
+         k[i]=in.nextInt();
+        }
+        for(int karr =0 , narr=0;karr<k.length&& narr<n.length;karr++,narr++){
+             int  a[] = new int [n[narr]];
+             int max =0;
+             for (int i=0;i<n[narr];i++){
+                 a[i]= i+1;
+             }
+             for(int i=0;i<a.length;i++){
+                 for(int j=1;j<a.length;j++){
+                     if(a[i]<a[j]){
+                     int andvalue = a[i]&a[j];
+                         int temp = max ;
+                     if( andvalue<k[karr] ){
+                         if(andvalue>temp){
+                            max = andvalue;
+                         }} 
+
+
+                     }
+
+                 }
+             }
+             System.out.println(max);
+        }
+    }
+  }
